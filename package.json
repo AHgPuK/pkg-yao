@@ -73,7 +73,7 @@
   },
   "scripts": {
     "clean": "rimraf lib-es5",
-    "build": "npm run clean && tsc && npm run build:sea-bootstrap",
+    "compile": "npm run clean && tsc && npm run build:sea-bootstrap",
     "build:sea-bootstrap": "node scripts/build-sea-bootstrap.js",
     "start": "tsc --watch",
     "lint": "npm run lint:style && npm run lint:code",
@@ -81,7 +81,7 @@
     "lint:code": "eslint lib prelude test",
     "fix": "npm run lint:style -- -w && npm run lint:code -- --fix",
     "prepublishOnly": "npm run lint",
-    "test": "npm run build && npm run test:unit && npm run test:host && npm run test:22 && npm run test:24",
+    "test": "npm run compile && npm run test:unit && npm run test:host && npm run test:22 && npm run test:24",
     "test:unit": "node -r esbuild-register --test --test-reporter=spec \"test/unit/**/*.test.ts\"",
     "test:unit:watch": "node -r esbuild-register --test --watch \"test/unit/**/*.test.ts\"",
     "coverage": "npm run coverage:unit && npm run coverage:e2e",
